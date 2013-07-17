@@ -1,3 +1,14 @@
+# kss-node　日本語化プロジェクト（オレオレ）
+
+kss、kss-nodeの日本での普及に、少しでも貢献できれば、と思い、個人プロジェクトとしてkss-nodeの日本語化を始めました。
+
+kssはフロントエンドの人にとっては若干敷居が高く（railsベースのため）、なかなか手が出し辛かったのではないかと思います。
+また、日本ではstyledoccoのドキュメントは見かけるのですが、kssについてはほとんど見られず、それも一因ではないかと思いました。
+
+kssでミニマムコスト・マックスハピネスをフロントエンドの世界に。
+
+[kss-node](https://github.com/hughsk/kss-node)
+
 # kss-node [![Build Status](https://secure.travis-ci.org/hughsk/kss-node.png?branch=master)](http://travis-ci.org/hughsk/kss-node)
 
 This is a NodeJS implementation of [Knyle Style Sheets](https://github.com/kneath/kss) (KSS), "a documentation syntax for CSS". Beyond that, it's intended to have syntax readable by humans *and* machines - hence, this module can be used to create a "living styleguide". The methodology and ideas behind Knyle Style Sheets are contained in [the specification](https://github.com/kneath/kss/blob/master/SPEC.md).
