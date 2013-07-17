@@ -6,19 +6,18 @@ kss-nodeはCSSスタイルガイドジェネレーターである[Knyle Style Sh
 KSSの手法や考え方は[the specification](https://github.com/kneath/kss/blob/master/SPEC.md)の仕様書に記述されています。
 
 There's an example project in the [demo directory](https://github.com/hughsk/kss-node/tree/master/demo) of this repo.
+
 このリポジトリの[demo directory](https://github.com/hughsk/kss-node/tree/master/demo) の中にサンプルプロジェクトを用意しています。
 
 ## Installation
-## インストール方法
-
 Just one line: `npm install kss`. If you want to use the command line interface, make sure the installation is global: `npm install -g kss`
+
 `npm install kss`　の　ワンラインだけでインストールできます。もし、コマンドラインを使用したいのであれば、念のためグローバルにインストールします。`npm install -g kss`
 
 ## Using the CLI
-## コマンドラインを使う場合
 To get you up and running quickly, a styleguide generator is included that can be used from the command line. It parses a directory of stylesheets and spits out a set of static HTML files like the ones used on this site.
-コマンドラインからさくっと使えるように、スタイルガイドジェネレータが付属されています。
-スタイルガイドジェネレータは、スタイルシートのディレクトリをパースし、このサイトで使用されているような静的htmlを吐き出してくれます。
+
+コマンドラインからさくっと使えるように、スタイルガイドジェネレータが付属されています。スタイルガイドジェネレータは、スタイルシートのディレクトリをパースし、このサイトで使用されているような静的htmlを吐き出してくれます。
 
 
 ```
@@ -37,24 +36,31 @@ Options:
 ```
 
 You'll need to specify a directory containing all of your CSS files to be parsed for documentation as the first argument. Optionally, the second argument can be used to specify a target directory. Your CSS won't be included by default, hence you should use the `--less`, `--css`, etc. flags to point to a stylesheet to compile and include.
+
 最初の引数には、解析したい全てのCSSファイルが含まれているディレクトリを指定してください。
+
 2番目の引数には、ターゲットディレクトリを指定してください。
+
 デフォルトではCSSは含まれませんので、あなたが使用しているもの`--less`, `--css`, などを指定して下さい。スタイルシートにコンパイルし、インクルードするためのフラグになっています。
 
+
 You can generate a copy of the demo styleguide like so:
+
 下記をコマンドラインで叩けばデモのスタイルガイドを生成できます。
     $ kss-node demo styleguide --less demo/styles.less
 
 You can create your own templates too, either by editing the contents of the `lib/template` directory or using the `--template` flag to point to your own.
-オリジナルのテンプレートを作ることもできます。
-`lib/template`の中を直接編集するか、もしくは`--template`フラグで新たに作成したテンプレートを指定するか、です。
+
+`lib/template`の中を直接編集するか、もしくは`--template`フラグで新たに作成したテンプレートを指定することで、オリジナルのテンプレートを作ることもできます。
+
 
 The default template should look something like this:　![CLI Template Preview](https://raw.github.com/hughsk/kss-node/develop/demo/preview.png)
+
 デフォルトのテンプレートはこのようになるはずです。　![CLI Template Preview](https://raw.github.com/hughsk/kss-node/develop/demo/preview.png)
 
 ## Using kss-node from Node
-## Node からkss-node　を使用する
 Check out the [Module API](https://github.com/hughsk/kss-node/wiki/Module-API) a full explanation. Here's an example:
+
 [Module API](https://github.com/hughsk/kss-node/wiki/Module-API)の詳述を確認してください。下記に例を書きます。
 
 ``` javascript
@@ -79,26 +85,25 @@ kss.traverse('public/stylesheets/', options, function(err, styleguide) {
 ```
 
 ## Differences
-## 違い
 
 Included are a few additional (optional) features to allow for completely automated styleguide generation.
-付属しているものは、追加（オプション）機能
+
+差分で付属しているものは、スタイルガイド生成を完全に自動化することを可能にするための追加（オプション）機能です。
+
 
 Take a look at the [demo project](http://github.com/hughsk/kss-node/tree/master/demo) for some examples.
- [demo project](http://github.com/hughsk/kss-node/tree/master/demo)からいくつか例として見ていきましょう。
+
+[demo project](http://github.com/hughsk/kss-node/tree/master/demo)からいくつか例として見ていきましょう。
 
 
 *Overview Document**. 
 This "overview" page is generated from a Markdown file, which you should place in the directory you're generating from, just name it `styleguide.md` and it will be included in the final styleguide automatically.
 
-Overview Document
-この"overview"ページは、Markdownファイルから生成されるもので、Markdownファイルを生成しているディレクトリ内に、`styleguide.md`という名前で保存してください。
-自動的に最終的なスタイルガイド内に含まれます。
+この"overview"ページは、Markdownファイルから生成されるもので、Markdownファイルを生成しているディレクトリ内に、`styleguide.md`という名前で保存してください。自動的に最終的なスタイルガイド内に含まれます。
 
 
 **HTML Markup**. In `kss-node` you can include sample markup in your styleguide entries. This is not only helpful for newcomers to a project, but is also used by the generator to include samples in your styleguide - just start a paragraph in your description section with `Markup:` like so:
 
-HTML Markup：
 `kss-node`はスタイルガイド内にサンプルマークアップを含めることができます。これはプロジェクトに新たに加わってくるメンバーだけに有用なだけではなく、ジェネレーターがあなたのスタイルガイドにhtmlサンプルを含める用途としても用いられます。
 下記のように、説明の箇所に `Markup:`　と書くだけでスタートできます。
 
@@ -117,7 +122,6 @@ HTML Markup：
 **Multi-line descriptions**.
 You can run your descriptions over multiple lines and paragraphs, and if you don't want to include the "modifiers" section you don't have to.
 
-**Multi-line descriptions**
 複数行で説明を記述することも可能です。そしてもしあなたが、"modifiers" sectionを含めたくなければ、含める必要はありません。
 
 ## Development
